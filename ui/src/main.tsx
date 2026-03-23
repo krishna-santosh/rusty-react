@@ -10,6 +10,7 @@ import { routeTree } from "./routeTree.gen";
 import "./styles.css";
 import reportWebVitals from "./reportWebVitals.ts";
 import { ThemeProvider } from "@/components/theme-provider.tsx";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 // Create a new router instance
 
@@ -40,7 +41,9 @@ if (rootElement && !rootElement.innerHTML) {
     <StrictMode>
       <TanStackQueryProvider.Provider {...TanStackQueryProviderContext}>
         <ThemeProvider defaultTheme="system">
-          <RouterProvider router={router} />
+          <TooltipProvider>
+            <RouterProvider router={router} />
+          </TooltipProvider>
         </ThemeProvider>
       </TanStackQueryProvider.Provider>
     </StrictMode>,
